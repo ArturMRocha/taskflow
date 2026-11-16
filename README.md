@@ -43,20 +43,4 @@ Install dependencies and run the development server:
 ```bash
 npm install
 npm run dev
-```
-
-Open [http://localhost:3000](http://localhost:3000).
-
-## Code Standards
-
-- Run `npm run lint` before opening a pull request.
-- Run `npm run format:check` to verify formatting; use `npm run format` to apply
-  the agreed Prettier rules.
-- Use TypeScript strict mode and avoid `any`.
-- Prefer Next.js Server Components; use Client Components only when browser-side
-  interactivity is needed.
-- Use feature branches named for the work, such as `feature/user-auth`.
-- Do not push directly to `main`. Merge changes through a pull request after at
-  least one other team member reviews it.
-- The `main` branch protection rules must be enabled in GitHub repository
-  settings by a repository administrator.
+``
