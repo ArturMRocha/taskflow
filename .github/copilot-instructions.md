@@ -61,6 +61,15 @@ Entities: `User`, `Project`, `ProjectMember` (join table with a `role`) and `Tas
 
 `/`, `/register`, `/login`, `/dashboard`, `/projects/new`, `/projects/[projectId]`, `/profile`.
 
+## Open decisions
+
+- Authentication provider and session strategy
+- Project sharing/invitation flow details
+- Automated test framework and CI/testing strategy
+- Deployment/testing environments
+
+Document and follow team decisions once made; do not silently introduce conflicting approaches.
+
 ## Git workflow
 
 - Create a feature branch from an updated `main` (`feature/...`, `fix/...`, `docs/...`).
@@ -68,3 +77,9 @@ Entities: `User`, `Project`, `ProjectMember` (join table with a `role`) and `Tas
 - Open a pull request into `main`. At least one teammate should review it.
 - Never run `prisma migrate dev`, `migrate reset` or `db push` against the shared database.
 - Install dependencies with `npm ci`. Do not run `npm install prisma@latest`: Prisma and `@prisma/client` are pinned to 7.10.1.
+
+## Notes for AI assistance
+
+- Treat this file as team guidance, but verify against the current code and docs before making changes.
+- Prefer incremental, verifiable progress that matches acceptance criteria.
+- If a requested change depends on an open decision (auth/db/tests), state the assumption and implement the smallest compatible foundation.
