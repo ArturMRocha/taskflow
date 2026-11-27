@@ -67,3 +67,5 @@ erDiagram
 
 - `passwordHash` stores a hashed password, never plaintext. It would be removed if the team chooses Clerk for authentication.
 - Optional fields: `User.bio`, `User.image`, `Project.dueDate`, `Task.description`, `Task.assigneeId`.
+- Prisma nullable fields are represented as nullable values (`T | null`), not omitted properties. The shared TypeScript model projections use generated Prisma types; the public `User` projection intentionally excludes `passwordHash`.
+- Project membership is represented by `ProjectMember`; `memberIds` is not a scalar field on `Project`.

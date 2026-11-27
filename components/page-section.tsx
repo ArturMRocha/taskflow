@@ -12,13 +12,13 @@ export function PageSection({
   children,
 }: PageSectionProps) {
   return (
-    <section className="rounded-2xl border border-zinc-200 bg-white p-6 shadow-sm dark:border-zinc-800 dark:bg-zinc-950">
+    <section className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
       <div className="mb-4 space-y-2">
-        <h2 className="text-xl font-semibold tracking-tight text-zinc-950 dark:text-zinc-50">
+        <h2 className="text-xl font-semibold tracking-tight text-slate-950">
           {title}
         </h2>
         {description ? (
-          <p className="max-w-3xl text-sm leading-6 text-zinc-600 dark:text-zinc-400">
+          <p className="max-w-3xl text-sm leading-6 text-slate-600">
             {description}
           </p>
         ) : null}

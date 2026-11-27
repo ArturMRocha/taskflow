@@ -1,37 +1,35 @@
-export const TASK_STATUSES = ["todo", "in_progress", "completed"] as const;
+import type {
+  Project as PrismaProject,
+  Task as PrismaTask,
+  TaskStatus as PrismaTaskStatus,
+  User as PrismaUser,
+} from "@/generated/prisma/client";
 
-export type TaskStatus = (typeof TASK_STATUSES)[number];
+export const TASK_STATUSES = [
+  "TODO",
+  "IN_PROGRESS",
+  "COMPLETED",
+] as const satisfies readonly PrismaTaskStatus[];
+
+export type TaskStatus = PrismaTaskStatus;
 
 export const TASK_STATUS_LABELS: Record<TaskStatus, string> = {
-  todo: "To Do",
-  in_progress: "In Progress",
-  completed: "Completed",
+  TODO: "To Do",
+  IN_PROGRESS: "In Progress",
+  COMPLETED: "Completed",
 };
 
-export interface User {
-  id: string;
-  name: string;
-  email: string;
-  profileInfo?: string;
-}
+export type User = Pick<PrismaUser, "id" | "name" | "email" | "bio" | "image">;
 
-export interface Project {
-  id: string;
-  title: string;
-  description: string;
-  ownerId: string;
-  memberIds: string[];
-  dueDate?: string;
-}
+export type Project = Pick<
+  PrismaProject,
+  "id" | "title" | "description" | "dueDate" | "ownerId"
+>;
 
-export interface Task {
-  id: string;
-  projectId: string;
-  title: string;
-  description: string;
-  status: TaskStatus;
-  assignedUserId?: string;
-}
+export type Task = Pick<
+  PrismaTask,
+  "id" | "projectId" | "title" | "description" | "status" | "assigneeId"
+>;
 
 export interface ProjectSummary {
   project: Project;
@@ -50,7 +48,7 @@ export function getTaskProgress(tasks: Pick<Task, "status">[]): {
   incomplete: number;
 } {
   const total = tasks.length;
-  const completed = tasks.filter((task) => task.status === "completed").length;
+  const completed = tasks.filter((task) => task.status === "COMPLETED").length;
 
   return {
     total,

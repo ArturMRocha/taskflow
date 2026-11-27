@@ -28,7 +28,7 @@ The GitHub Project Board URL and the published code-review issue URL should be a
 
 - Next.js (App Router), React, TypeScript (strict)
 - Tailwind CSS v4 with the Geist font
-- PostgreSQL on Neon, accessed with Prisma 7.10.1
+- PostgreSQL on Neon via Prisma 7.10.1; the schema and initial migration are configured, but application data operations are not implemented yet
 - Hosting: Vercel
 - ESLint and Prettier (with `eslint-config-prettier`)
 - Authentication: not yet chosen (Auth.js v5 or Clerk)
@@ -47,11 +47,11 @@ Do not run `prisma migrate dev`, `migrate reset` or `db push` against a shared d
 
 `User`, `Project`, `ProjectMember` (join table with role) and `Task`. Task status values: `TODO`, `IN_PROGRESS`, `COMPLETED`. The schema is in `prisma/schema.prisma`.
 
-## Design (planned)
+## Design
 
-- Palette: indigo (primary), slate (neutrals), emerald and amber for task states
+- Palette: Indigo for primary actions, Slate for neutrals, Emerald for completed tasks, and Amber for in-progress tasks
 - Font: Geist
-- Tokens will be defined in `globals.css` with Tailwind v4 `@theme`
+- Light mode only for the MVP; color tokens are defined in `app/globals.css` with Tailwind v4 `@theme`
 
 ## API (planned, not yet implemented)
 
@@ -71,5 +71,6 @@ Feature branches, pull requests into `main`, and at least one review before merg
 ## Known issues and next steps
 
 - Authentication provider not yet chosen
+- Database-backed project and task operations are not implemented yet
 - Automated tests not yet set up
 - Migrations are applied to the Neon `dev` branch; the production (`main`) migration is pending

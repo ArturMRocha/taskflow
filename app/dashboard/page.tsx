@@ -11,10 +11,10 @@ export default function DashboardPage() {
   return (
     <div className="flex flex-col gap-8">
       <header className="space-y-2">
-        <h1 className="text-3xl font-semibold tracking-tight text-zinc-950 dark:text-zinc-50">
+        <h1 className="text-3xl font-semibold tracking-tight text-slate-950">
           Dashboard
         </h1>
-        <p className="max-w-3xl text-base leading-7 text-zinc-600 dark:text-zinc-400">
+        <p className="max-w-3xl text-base leading-7 text-slate-600">
           Project progress summaries will appear here once authentication and
           project/task data are connected.
         </p>
@@ -34,7 +34,7 @@ export default function DashboardPage() {
         title="What comes next"
         description="This dashboard is prepared for P0 work from the project board."
       >
-        <ul className="list-disc space-y-2 pl-5 text-sm leading-6 text-zinc-700 dark:text-zinc-300">
+        <ul className="list-disc space-y-2 pl-5 text-sm leading-6 text-slate-700">
           <li>Show projects available to the current user.</li>
           <li>Display task totals and completed vs. incomplete counts.</li>
           <li>

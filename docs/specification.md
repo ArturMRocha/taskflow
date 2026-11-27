@@ -106,6 +106,7 @@ Passwords must never be stored as plaintext.
 - **Framework:** Next.js App Router.
 - **Language:** TypeScript with strict type checking; avoid `any`.
 - **Styling:** Tailwind CSS utility classes, with custom CSS only when necessary.
+- **Persistence:** PostgreSQL on Neon via Prisma 7.10.1. The schema and initial migration are configured; application data operations are not implemented in the current baseline.
 - **Rendering:** Use Server Components by default; add Client Components only
   for browser-side interactivity.
 - **Validation:** Validate untrusted form and API input on the server.
@@ -113,10 +114,10 @@ Passwords must never be stored as plaintext.
   visible focus states.
 - **Testing:** Cover validation, authorization, project/task workflows, and
   responsive layouts with appropriate automated tests.
-- **Current repository baseline:** Next.js, React, TypeScript, Tailwind CSS, and
-  ESLint are present. Authentication, persistence, and automated test tooling
-  are not yet configured; choose and document those before implementing those
-  features.
+- **Current repository baseline:** Next.js, React, TypeScript, Tailwind CSS,
+  ESLint, and the PostgreSQL/Neon Prisma schema are configured. Authentication,
+  database-backed application workflows, and automated test tooling are not yet
+  implemented.
 
 ## Proposed API Endpoints
 
@@ -150,8 +151,7 @@ These are planned interfaces, not claims about routes already implemented.
 
 ## Open Decisions
 
-- Select the authentication provider and persistent database before building
-  account and project workflows.
+- Select the authentication provider before building account workflows.
 - Define whether projects can be shared by invitation and how invitations are
   accepted.
 - Confirm deployment and testing environments with the team.
